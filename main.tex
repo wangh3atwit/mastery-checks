@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Mastery Checks 6}
+\author{Hongbo Wang }
+\date{October 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{ Calculate the order of the error in a finite difference approximation scheme.}
+
+
+\vskip 4ex
+Approximate $u'(x)$ using $u(x-h)$, $u(x)$, $u(x+2h)$ with the best possible order of the error.
+
+\vskip 2ex
+To solve this problem we are going to use Taylor series.
+\vskip 2ex
+We set 
+\vskip 2ex
+$Au(x) = u(x)$
+\vskip 2ex
+      $Bu(x-h) = u(x) + u'(x)(-h) + \frac{u"(x)(h)^2}{2} + \frac{u"'(x)(-h)^3}{3!} + \frac{u""(x)(h)^4}{4!} + ...$
+\vskip 2ex
+$Cu(x+2h) = u(x) + u'(x)(2h) + \frac{u"(x)(2h)^2}{2} + \frac{u"'(x)(2h)^3}{3!} + \frac{u""(x)(2h)^4}{4!} + ...$
+\vskip 2ex
+Since we are trying to approximate $u'(x)$, so that we are going to set everything zero but $u'(x)$. 
+\vskip 2ex
+So that we want:
+\vskip 2ex
+$u(x): A + B + C = 0 $
+\vskip 1ex
+$u'(x): -B + 2C \neq 0$
+\vskip 1ex
+$u"(x): B + 4C = 0$
+\vskip 1ex
+...
+\vskip 3ex
+Thus we have $A = 3C$
+\vskip 1ex
+$4C + B = 0$
+\vskip 1ex
+$B = -4C$
+\vskip 1ex
+Which gives us:
+\vskip 1ex
+$A = 3, B = -4, C = 1$
+\vskip 3ex
+Then we plug A, B and C in for A + B + C:
+\vskip 1ex
+$3u(x) - 4u(x-h) + u(x+2h) = u'(x)(-h) + u'(x)(2h) = u'(x)(h) + \theta (h^3)$
+\vskip 4ex
+Therefore, we have:
+\vskip 1ex
+$u'(x) + \theta (h^2) = \frac{3u(x) -4u(x-h) + u(x+2h)}{h}$
+
+\end{document}
